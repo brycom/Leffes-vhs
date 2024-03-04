@@ -5,23 +5,186 @@
 -- insert into myentity (id, field) values(3, 'field-3');
 -- alter sequence myentity_seq restart with 4;
 
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (304.61, 9.22, 'Drama|War', 'http://dummyimage.com/176x100.png/cc0000/ffffff', 'Incididunt ut labore et dolore magna aliqua', true, 'Patton');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (454.94, 155.65, 'Documentary', 'http://dummyimage.com/153x100.png/dddddd/000000', 'Sed do eiusmod tempor', false, 'Superpower');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (556.55, 217.93, 'Animation', 'http://dummyimage.com/114x100.png/cc0000/ffffff', 'Lorem ipsum dolor sit amet', false, 'Trick or Treat');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (175.03, 215.38, '(no genres listed)', 'http://dummyimage.com/173x100.png/dddddd/000000', 'Incididunt ut labore et dolore magna aliqua', false, 'The Karen Carpenter Story');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (12.55, 795.85, 'Documentary', 'http://dummyimage.com/112x100.png/dddddd/000000', 'Sed do eiusmod tempor', false, 'Pink Ribbons, Inc.');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (839.31, 579.46, 'Action|Adventure|Fantasy', 'http://dummyimage.com/223x100.png/ff4444/ffffff', 'Incididunt ut labore et dolore magna aliqua', true, 'Age of the Dragons');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (110.8, 771.41, 'Action|Drama|Horror', 'http://dummyimage.com/195x100.png/ff4444/ffffff', 'Incididunt ut labore et dolore magna aliqua', false, 'Billy the Kid vs. Dracula');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (72.55, 792.31, 'Drama|Romance|Sci-Fi|Thriller', 'http://dummyimage.com/231x100.png/dddddd/000000', 'Sed do eiusmod tempor', false, 'Lucia');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (718.07, 410.52, 'Drama', 'http://dummyimage.com/186x100.png/dddddd/000000', 'Sed do eiusmod tempor', false, 'Betty');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (875.23, 656.82, 'Documentary', 'http://dummyimage.com/146x100.png/cc0000/ffffff', 'Ut enim ad minim veniam', false, 'No Flesh Shall Be Spared');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (252.85, 673.74, 'Drama|Western', 'http://dummyimage.com/169x100.png/dddddd/000000', 'Consectetur adipiscing elit', true, 'Bravados, The');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (765.66, 305.0, 'Documentary', 'http://dummyimage.com/216x100.png/dddddd/000000', 'Sed do eiusmod tempor', true, 'Modulations');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (469.83, 612.81, 'Fantasy|Horror|Sci-Fi', 'http://dummyimage.com/155x100.png/cc0000/ffffff', 'Consectetur adipiscing elit', false, 'Making Contact (a.k.a. Joey)');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (865.35, 418.14, 'Drama|Romance', 'http://dummyimage.com/245x100.png/5fa2dd/ffffff', 'Incididunt ut labore et dolore magna aliqua', false, 'Anna Karenina');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (775.91, 521.19, 'Action|Adventure', 'http://dummyimage.com/120x100.png/ff4444/ffffff', 'Consectetur adipiscing elit', false, 'Tarzan the Fearless');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (95.87, 964.76, 'Comedy|Western', 'http://dummyimage.com/151x100.png/dddddd/000000', 'Lorem ipsum dolor sit amet', true, 'Go West');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (642.46, 904.37, 'Action|Adventure|Sci-Fi', 'http://dummyimage.com/220x100.png/dddddd/000000', 'Consectetur adipiscing elit', true, 'The Inhabited Island 2: Rebellion');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (668.12, 205.33, 'Horror|Sci-Fi', 'http://dummyimage.com/107x100.png/cc0000/ffffff', 'Incididunt ut labore et dolore magna aliqua', false, 'Invisible Ray, The');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (598.78, 521.86, 'Crime|Drama', 'http://dummyimage.com/249x100.png/ff4444/ffffff', 'Consectetur adipiscing elit', true, 'Seven Thieves');
-insert into vhs_movie (price, inventoryAmount, category, imageUrl, description, deleted, name) values (984.37, 308.7, 'Action|Drama|Sci-Fi|Thriller', 'http://dummyimage.com/226x100.png/ff4444/ffffff', 'Sed do eiusmod tempor', true, 'Battlestar Galactica: Razor');
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        304.61, 9, 'Drama|War', 'http://dummyimage.com/176x100.png/cc0000/ffffff', 'Incididunt ut labore et dolore magna aliqua', true, 'Patton'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        454.94, 155, 'Documentary', 'http://dummyimage.com/153x100.png/dddddd/000000', 'Sed do eiusmod tempor', false, 'Superpower'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        556.55, 217, 'Animation', 'http://dummyimage.com/114x100.png/cc0000/ffffff', 'Lorem ipsum dolor sit amet', false, 'Trick or Treat'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        175.03, 215, '(no genres listed)', 'http://dummyimage.com/173x100.png/dddddd/000000', 'Incididunt ut labore et dolore magna aliqua', false, 'The Karen Carpenter Story'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        12.55, 795, 'Documentary', 'http://dummyimage.com/112x100.png/dddddd/000000', 'Sed do eiusmod tempor', false, 'Pink Ribbons, Inc.'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        839.31, 579, 'Action|Adventure|Fantasy', 'http://dummyimage.com/223x100.png/ff4444/ffffff', 'Incididunt ut labore et dolore magna aliqua', true, 'Age of the Dragons'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        110.8, 771, 'Action|Drama|Horror', 'http://dummyimage.com/195x100.png/ff4444/ffffff', 'Incididunt ut labore et dolore magna aliqua', false, 'Billy the Kid vs. Dracula'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        72.55, 792, 'Drama|Romance|Sci-Fi|Thriller', 'http://dummyimage.com/231x100.png/dddddd/000000', 'Sed do eiusmod tempor', false, 'Lucia'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        718.07, 410, 'Drama', 'http://dummyimage.com/186x100.png/dddddd/000000', 'Sed do eiusmod tempor', false, 'Betty'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        875.23, 656, 'Documentary', 'http://dummyimage.com/146x100.png/cc0000/ffffff', 'Ut enim ad minim veniam', false, 'No Flesh Shall Be Spared'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        252.85, 673, 'Drama|Western', 'http://dummyimage.com/169x100.png/dddddd/000000', 'Consectetur adipiscing elit', true, 'Bravados, The'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        765.66, 305, 'Documentary', 'http://dummyimage.com/216x100.png/dddddd/000000', 'Sed do eiusmod tempor', true, 'Modulations'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        469.83, 612, 'Fantasy|Horror|Sci-Fi', 'http://dummyimage.com/155x100.png/cc0000/ffffff', 'Consectetur adipiscing elit', false, 'Making Contact (a.k.a. Joey)'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        865.35, 418, 'Drama|Romance', 'http://dummyimage.com/245x100.png/5fa2dd/ffffff', 'Incididunt ut labore et dolore magna aliqua', false, 'Anna Karenina'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        775.91, 521, 'Action|Adventure', 'http://dummyimage.com/120x100.png/ff4444/ffffff', 'Consectetur adipiscing elit', false, 'Tarzan the Fearless'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        95.87, 964, 'Comedy|Western', 'http://dummyimage.com/151x100.png/dddddd/000000', 'Lorem ipsum dolor sit amet', true, 'Go West'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        642.46, 904, 'Action|Adventure|Sci-Fi', 'http://dummyimage.com/220x100.png/dddddd/000000', 'Consectetur adipiscing elit', true, 'The Inhabited Island 2: Rebellion'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        668.12, 205, 'Horror|Sci-Fi', 'http://dummyimage.com/107x100.png/cc0000/ffffff', 'Incididunt ut labore et dolore magna aliqua', false, 'Invisible Ray, The'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        598.78, 521, 'Crime|Drama', 'http://dummyimage.com/249x100.png/ff4444/ffffff', 'Consectetur adipiscing elit', true, 'Seven Thieves'
+    );
+
+insert into
+    vhs_movie (
+        price, inventoryAmount, category, imageUrl, description, deleted, name
+    )
+values (
+        984.37, 308, 'Action|Drama|Sci-Fi|Thriller', 'http://dummyimage.com/226x100.png/ff4444/ffffff', 'Sed do eiusmod tempor', true, 'Battlestar Galactica: Razor'
+    );
+
+INSERT INTO
+    vhs_player (
+        price, name, inventoryAmount, imageUrl, description, deleted
+    )
+VALUES (
+        799, "VHS PLAYER 9000", 7, "http://dummyimage.com/249x100.png/ff4444/ffffff", "Handmade by LEFFE of Sweden", false
+    );
+
+INSERT INTO
+    vhs_player (
+        price, name, inventoryAmount, imageUrl, description, deleted
+    )
+VALUES (
+        32.2, "Spelare ett", 1, "http://dummyimage.com/249x100.png/ff4444/ffffff", "Din första VHS-spelare", false
+    );
+
+INSERT INTO
+    vhs_player (
+        price, name, inventoryAmount, imageUrl, description, deleted
+    )
+VALUES (
+        9000.1, "Over 9000!", 764, "http://dummyimage.com/249x100.png/ff4444/ffffff", "The best player for Dragon Ball Z", true
+    );
