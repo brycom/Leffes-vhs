@@ -19,4 +19,8 @@ public class VhsMovieService {
         List<VhsMovie> books = entityManager.createQuery("SELECT v FROM VhsMovie v", VhsMovie.class).getResultList();
         return books;
     }
+
+    public VhsMovie getMovieById(int id) {
+        return entityManager.find(VhsMovie.class, id);
+    }
 }
