@@ -42,11 +42,9 @@ public class VhsMovieController {
         VhsMovie uniqueMovie = vhsMovieService.getMovieById(id);
 
         if (uniqueMovie == null) {
-            System.out.println("i if");
             return Response.status(Response.Status.NOT_FOUND).entity("Could not find a movie with ID: " + id).build();
 
         }
-        System.out.println("id: " + id + uniqueMovie);
         return Response.ok(uniqueMovie).build();
     }
 
