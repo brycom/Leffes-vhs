@@ -27,8 +27,8 @@ public class VhsMovieController {
     @GET
     public Response getAllMovies() {
         List<VhsMovie> movies = vhsMovieService.findAll();
-        
-        if(movies.isEmpty()){
+
+        if (movies.isEmpty()) {
             return Response.noContent().build();
         }
 
@@ -41,10 +41,10 @@ public class VhsMovieController {
 
         VhsMovie uniqueMovie = vhsMovieService.getMovieById(id);
 
-        if(uniqueMovie == null) {
+        if (uniqueMovie == null) {
             return Response.status(Response.Status.NOT_FOUND).entity("Could not find a movie with ID: " + id).build();
+
         }
-        
         return Response.ok(uniqueMovie).build();
     }
 
