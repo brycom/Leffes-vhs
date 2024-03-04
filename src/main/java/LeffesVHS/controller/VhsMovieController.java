@@ -11,6 +11,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.PATCH;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -36,9 +37,15 @@ public class VhsMovieController {
 
     @GET
     @Path("/{id}")
-    public Response getUniqueMovie() {
-        return null;
+    public Response getUniqueMovie(@PathParam("id") int id) {
 
+        VhsMovie uniqueMovie = vhsMovieService.getMovieById(id);
+
+        if(uniqueMovie == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Could not find a movie with ID: " + id).build();
+        }
+        
+        return Response.ok(uniqueMovie).build();
     }
 
     @GET
