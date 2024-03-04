@@ -23,7 +23,7 @@ public class ApiFilter implements Filter {
 
         } else {
             HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         }
 
     }
