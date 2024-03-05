@@ -32,4 +32,28 @@ public class VhsMovieService {
 
         return movies;
     }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public VhsMovie createNewMovie(VhsMovie vhsMovie) {
+        try {
+            entityManager.persist(vhsMovie);
+            return vhsMovie;
+        } catch (Exception e) {
+            System.out.println(">>>>>>" + e);
+            return null;
+        }
+    }
+    @Transactional(Transactional.TxType.REQUIRED)
+    public VhsMovie deleteMovie(int id) {
+        VhsMovie movieToDelete = entityManager.find(VhsMovie.class, id);
+
+        try {
+            movieToDelete.setDeleted(true);
+            entityManager.merge(movieToDelete);
+            return movieToDelete;
+        } catch (Exception e) {
+            System.out.println(">>>>>>" + e);
+            return null;
+        }
+    }
 }

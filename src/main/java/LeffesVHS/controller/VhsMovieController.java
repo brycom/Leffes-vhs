@@ -80,14 +80,33 @@ public class VhsMovieController {
 
     @POST
     @Path("/addnewmovie")
-    public Response addNewMovie() {
-        return null;
+    public Response addNewMovie(VhsMovie newMovie) {
+
+        if(newMovie.getPrice() == 0.0) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("You must give the movie a price").build();
+        }
+
+        if (newMovie.getName() == null || newMovie.getName().isEmpty()) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("You must give the movie a name").build();
+        }
+
+        VhsMovie createdMovie = vhsMovieService.createNewMovie(newMovie);
+
+        return Response.ok(createdMovie).build();
     }
 
     @DELETE
     @Path("/{id}")
-    public Response deleteMovie() {
-        return null;
+    public Response deleteMovie(@PathParam("id") int id) {
+
+        VhsMovie movieToDelete = vhsMovieService.deleteMovie(id);
+
+        if (movieToDelete == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Could not find a movie with ID: " + id).build();
+        }
+
+        return Response.status(Response.Status.OK).entity("The Movie: \"" + movieToDelete.getName() + "\" Was Deleted").build();
+
     }
 
 }
