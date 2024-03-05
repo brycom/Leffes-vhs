@@ -2,7 +2,6 @@ package LeffesVHS.controller;
 
 import java.util.List;
 
-import LeffesVHS.model.VhsMovie;
 import LeffesVHS.model.VhsPlayer;
 import LeffesVHS.service.VhsPlayerService;
 import jakarta.inject.Inject;
@@ -12,6 +11,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.PATCH;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -37,8 +37,15 @@ public class VhsPlayerController {
 
     @GET
     @Path("/{id}")
-    public Response getUniquePlayer() {
-        return null;
+    public Response getUniquePlayer(@PathParam("id") int id) {
+
+        VhsPlayer uniquePlayer = vhsPlayerService.getPlayerById(id);
+
+        if(uniquePlayer == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Could not find a movie with ID: " + id).build();
+        }
+
+        return Response.ok(uniquePlayer).build();
 
     }
 
@@ -64,8 +71,20 @@ public class VhsPlayerController {
 
     @POST
     @Path("/addnewplayer")
-    public Response addNewPlayer() {
-        return null;
+    public Response addNewPlayer(VhsPlayer newVhsPlayer) {
+
+        if(newVhsPlayer.getPrice() == 0.0) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("You must give the player a price").build();
+        }
+
+        if (newVhsPlayer.getName() == null || newVhsPlayer.getName().isEmpty()) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("You must give the player a name").build();
+        }
+
+        VhsPlayer createdVhsPlayer = vhsPlayerService.createNewPlayer(newVhsPlayer);
+
+        return Response.ok(createdVhsPlayer).build();
+
     }
 
     @DELETE
