@@ -16,8 +16,8 @@ public class VhsMovieService {
     EntityManager entityManager;
 
     public List<VhsMovie> findAll(){
-        List<VhsMovie> books = entityManager.createQuery("SELECT v FROM VhsMovie v", VhsMovie.class).getResultList();
-        return books;
+        List<VhsMovie> movies = entityManager.createQuery("SELECT v FROM VhsMovie v", VhsMovie.class).getResultList();
+        return movies;
     }
 
     public VhsMovie getMovieById(int id) {
@@ -55,5 +55,14 @@ public class VhsMovieService {
             System.out.println(">>>>>>" + e);
             return null;
         }
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED) 
+    public VhsMovie buyMovie(int id) {
+        VhsMovie existingMovie = entityManager.find(VhsMovie.class, id);
+            
+             existingMovie.setInventoryAmount(existingMovie.getInventoryAmount()- 1);
+           
+        return entityManager.merge(existingMovie);
     }
 }
