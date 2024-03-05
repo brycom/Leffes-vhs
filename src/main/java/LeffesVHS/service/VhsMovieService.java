@@ -23,4 +23,13 @@ public class VhsMovieService {
     public VhsMovie getMovieById(int id) {
         return entityManager.find(VhsMovie.class, id);
     }
+
+    public List<VhsMovie> getMoviesByCategory(String category) {
+        @SuppressWarnings("unchecked")
+        List<VhsMovie> movies = entityManager.createQuery("SELECT v FROM VhsMovie v WHERE v.category LIKE :category")
+        .setParameter("category", "%" + category + "%")
+        .getResultList();
+
+        return movies;
+    }
 }

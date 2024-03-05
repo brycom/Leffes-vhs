@@ -49,9 +49,13 @@ public class VhsMovieController {
     }
 
     @GET
-    @Path("/{category}")
-    public Response getMovieCategory() {
-        return null;
+    @Path("/category/{category}")
+    public Response getMovieCategory(@PathParam("category") String category) {
+        List<VhsMovie> movies = vhsMovieService.getMoviesByCategory(category);
+         if(movies.isEmpty()){
+            return Response.noContent().build();
+        }
+        return Response.ok(movies).build();
     }
 
     // Används för att köpa en film. vhsMovie --
