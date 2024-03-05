@@ -165,12 +165,12 @@ values (
         984.37, 308, 'Action|Drama|Sci-Fi|Thriller', 'http://dummyimage.com/226x100.png/ff4444/ffffff', 'Sed do eiusmod tempor', true, 'Battlestar Galactica: Razor'
     );
 
- INSERT INTO
+INSERT INTO
     vhs_player (
         price, name, inventoryAmount, imageUrl, description, deleted
     )
 VALUES (
-        799, 'VHS PLAYER 9000', 7, 'http://dummyimage.com/249x100.png/ff4444/ffffff', 'Handmade by LEFFE of Sweden', false
+        799, "VHS PLAYER 9000", 7, "http://dummyimage.com/249x100.png/ff4444/ffffff", "Handmade by LEFFE of Sweden", false
     );
 
 INSERT INTO
@@ -178,25 +178,13 @@ INSERT INTO
         price, name, inventoryAmount, imageUrl, description, deleted
     )
 VALUES (
-        32.2, 'Spelare ett', 1, 'http://dummyimage.com/249x100.png/ff4444/ffffff', 'Din första VHS-spelare', false
+        32.2, "Spelare ett", 1, "http://dummyimage.com/249x100.png/ff4444/ffffff", "Din första VHS-spelare", false
     );
 
 INSERT INTO
     vhs_player (
-        price, name, inventoryAmount, imageUrl, description, deleted)
-VALUES (99.99, 'försöker vi igen', 10, 'https://example.com/image1.jpg', 'High-quality VHS player with remote control', FALSE);
-
-    
-    INSERT INTO vhs_player (price, name, inventoryAmount, imageUrl, description, deleted)
-VALUES 
-    (99.99, 'Sony VHS Player', 10, 'https://example.com/image1.jpg', 'High-quality VHS player with remote control', FALSE),
-    (79.99, 'Panasonic VHS Player', 15, 'https://example.com/image2.jpg', 'Compact VHS player with built-in VCR', FALSE),
-    (129.99, 'JVC VHS Player', 8, 'https://example.com/image3.jpg', 'Premium VHS player with Dolby surround sound', FALSE),
-    (69.99, 'Toshiba VHS Player', 12, 'https://example.com/image4.jpg', 'Reliable VHS player with easy-to-use controls', FALSE),
-    (149.99, 'Philips VHS Player', 6, 'https://example.com/image5.jpg', 'Sleek VHS player with digital display', FALSE),
-    (89.99, 'Samsung VHS Player', 20, 'https://example.com/image6.jpg', 'Modern VHS player with HDMI output', FALSE),
-    (109.99, 'Sharp VHS Player', 9, 'https://example.com/image7.jpg', 'Stylish VHS player with automatic tracking', FALSE),
-    (59.99, 'LG VHS Player', 18, 'https://example.com/image8.jpg', 'Compact and lightweight VHS player', FALSE),
-    (79.99, 'Mitsubishi VHS Player', 14, 'https://example.com/image9.jpg', 'Classic VHS player with timeless design', FALSE),
-    (139.99, 'Sanyo VHS Player', 11, 'https://example.com/image10.jpg', 'Feature-rich VHS player with remote control', FALSE);
- 
+        price, name, inventoryAmount, imageUrl, description, deleted
+    )
+VALUES (
+        9000.1, "Over 9000!", 764, "http://dummyimage.com/249x100.png/ff4444/ffffff", "The best player for Dragon Ball Z", true
+    );

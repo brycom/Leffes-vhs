@@ -61,8 +61,14 @@ public class VhsMovieController {
     // Används för att köpa en film. vhsMovie --
     @PATCH
     @Path("/buymovie/{id}")
-    public Response buyMovie() {
-        return null;
+    public Response buyMovie(@PathParam("id") int id) {
+        VhsMovie buyMovie = vhsMovieService.buyMovie(id);
+
+        if (buyMovie == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Could not find a movie with ID: " + id).build();
+
+        }
+        return Response.ok(buyMovie).build();
     }
 
     // För Leffe när han inventerar
