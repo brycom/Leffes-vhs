@@ -48,12 +48,16 @@ public class VhsMovieService {
         VhsMovie movieToDelete = entityManager.find(VhsMovie.class, id);
 
         try {
+
             movieToDelete.setDeleted(true);
             entityManager.merge(movieToDelete);
             return movieToDelete;
+
         } catch (Exception e) {
+
             System.out.println(">>>>>>" + e);
             return null;
+            
         }
     }
 
@@ -64,5 +68,42 @@ public class VhsMovieService {
              existingMovie.setInventoryAmount(existingMovie.getInventoryAmount()- 1);
            
         return entityManager.merge(existingMovie);
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public VhsMovie changeMovieInventory(int id, int newInventoryAmount) {
+
+        try {
+
+            VhsMovie movieInventoryToChange = entityManager.find(VhsMovie.class, id);
+            movieInventoryToChange.setInventoryAmount(newInventoryAmount);
+            entityManager.merge(movieInventoryToChange);
+            return movieInventoryToChange;
+            
+        } catch (Exception e) {
+
+            System.out.println(">>>>>" + e);
+            return null;
+
+        }
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public VhsMovie updateMoviePrice(int id, double newPrice) {
+
+        try {
+
+            VhsMovie movieWithNewPrice = entityManager.find(VhsMovie.class, id);
+            movieWithNewPrice.setPrice(newPrice);
+            entityManager.merge(movieWithNewPrice);
+            return movieWithNewPrice;
+
+        } catch (Exception e) {
+
+            System.out.println(">>>>" + e);
+            return null;
+
+        }
+
     }
 }
