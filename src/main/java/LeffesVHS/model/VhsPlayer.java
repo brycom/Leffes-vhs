@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "vhs_player")
@@ -14,13 +15,13 @@ public class VhsPlayer {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty(message = "Price can't be empty")
+    @NotNull(message = "Price can't be empty")
     private double price;
 
     @NotEmpty(message = "Name can't be empty")
     private String name;
 
-    @NotEmpty(message = "inventoryAmount needs to be set")
+    @NotNull(message = "inventoryAmount needs to be set")
     private int inventoryAmount;
 
     private String imageUrl;
