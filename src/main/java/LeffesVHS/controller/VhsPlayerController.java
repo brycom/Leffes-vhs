@@ -1,5 +1,11 @@
 package LeffesVHS.controller;
 
+import java.util.List;
+
+import LeffesVHS.model.VhsMovie;
+import LeffesVHS.model.VhsPlayer;
+import LeffesVHS.service.VhsPlayerService;
+import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -15,9 +21,18 @@ import jakarta.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class VhsPlayerController {
 
+    @Inject
+    VhsPlayerService vhsPlayerService;
+
     @GET
     public Response getAllPlayers() {
-        return null;
+        List<VhsPlayer> players = vhsPlayerService.findAll();
+
+        if (players.isEmpty()) {
+            return Response.noContent().build();
+        }
+
+        return Response.ok(players).build();
     }
 
     @GET
