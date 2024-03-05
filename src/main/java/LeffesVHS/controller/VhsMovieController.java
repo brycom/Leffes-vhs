@@ -80,8 +80,19 @@ public class VhsMovieController {
 
     @POST
     @Path("/addnewmovie")
-    public Response addNewMovie() {
-        return null;
+    public Response addNewMovie(VhsMovie newMovie) {
+
+        if(newMovie.getPrice() == 0.0) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("You must give the movie a price").build();
+        }
+
+        if (newMovie.getName() == null || newMovie.getName().isEmpty()) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("You must give the movie a name").build();
+        }
+
+        VhsMovie createdMovie = vhsMovieService.createNewMovie(newMovie);
+
+        return Response.ok(createdMovie).build();
     }
 
     @DELETE

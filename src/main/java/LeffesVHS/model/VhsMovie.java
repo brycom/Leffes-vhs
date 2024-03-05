@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "vhs_movie")
@@ -14,13 +15,13 @@ public class VhsMovie {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty(message = "Price can't be empty")
+    @NotNull(message = "Price can't be empty")
     private double price;
 
     @NotEmpty(message = "Name can't be empty")
     private String name;
 
-    @NotEmpty(message = "inventoryAmount needs to be set")
+    @NotNull(message = "inventoryAmount needs to be set")
     private int inventoryAmount;
 
     private String category;
@@ -43,9 +44,9 @@ public class VhsMovie {
 
     }
 
-    public VhsMovie(@NotEmpty(message = "Price can't be empty") double price,
+    public VhsMovie(@NotNull(message = "Price can't be empty") double price,
             @NotEmpty(message = "Name can't be empty") String name,
-            @NotEmpty(message = "inventoryAmount needs to be set") int inventoryAmount, String category,
+            @NotNull(message = "inventoryAmount needs to be set") int inventoryAmount, String category,
             String imageUrl, String description, boolean deleted) {
         this.price = price;
         this.name = name;

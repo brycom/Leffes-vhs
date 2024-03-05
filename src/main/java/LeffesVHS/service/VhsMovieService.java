@@ -32,4 +32,15 @@ public class VhsMovieService {
 
         return movies;
     }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public VhsMovie createNewMovie(VhsMovie vhsMovie) {
+        try {
+            entityManager.persist(vhsMovie);
+            return vhsMovie;
+        } catch (Exception e) {
+            System.out.println(">>>>>>" + e);
+            return null;
+        }
+    }
 }
