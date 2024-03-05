@@ -108,5 +108,4 @@ public class VhsMovie {
     public void setDescription(String description) {
         this.description = description;
     }
-
 }

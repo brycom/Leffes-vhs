@@ -97,8 +97,16 @@ public class VhsMovieController {
 
     @DELETE
     @Path("/{id}")
-    public Response deleteMovie() {
-        return null;
+    public Response deleteMovie(@PathParam("id") int id) {
+
+        VhsMovie movieToDelete = vhsMovieService.deleteMovie(id);
+
+        if (movieToDelete == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Could not find a movie with ID: " + id).build();
+        }
+
+        return Response.status(Response.Status.OK).entity("The Movie: \"" + movieToDelete.getName() + "\" Was Deleted").build();
+
     }
 
 }
