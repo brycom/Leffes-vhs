@@ -20,6 +20,11 @@ public class VhsMovieService {
         return movies;
     }
 
+    public List<VhsMovie> findAllNotSoftDeleted(){
+        List<VhsMovie> movies = entityManager.createQuery("SELECT v FROM VhsMovie v WHERE v.deleted = false", VhsMovie.class).getResultList();
+        return movies;
+    }
+
     public VhsMovie getMovieById(int id) {
         return entityManager.find(VhsMovie.class, id);
     }
