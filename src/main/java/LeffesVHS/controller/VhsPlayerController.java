@@ -52,15 +52,19 @@ public class VhsPlayerController {
     // Används för att köpa en spelare. vhsPlayer --
     @PATCH
     @Path("/buyplayer/{id}")
-    public Response buyPlayer() {
-        return null;
+    public Response buyPlayer(@PathParam("id") int id) {
+    
+        return vhsPlayerService.buyPlayer(id);
+    
     }
 
     // För Leffe när han inventerar
     @PATCH
-    @Path("/changeplayerinventory/{id}")
-    public Response changePlayerInventory() {
-        return null;
+    @Path("/changeplayerinventory/{id}/{newInventoryAmount}")
+    public Response changePlayerInventory(@PathParam("id") int id, @PathParam("newInventoryAmount") int newInventoryAmount) {
+    
+        return vhsPlayerService.changePlayerInventory(id, newInventoryAmount);
+            
     }
 
     @PATCH
