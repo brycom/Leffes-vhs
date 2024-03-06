@@ -42,9 +42,9 @@ public class VhsPlayer {
 
     }
 
-    public VhsPlayer(@NotEmpty(message = "Price can't be empty") double price,
+    public VhsPlayer(@NotNull(message = "Price can't be empty") double price,
             @NotEmpty(message = "Name can't be empty") String name,
-            @NotEmpty(message = "inventoryAmount needs to be set") int inventoryAmount, String imageUrl,
+            @NotNull(message = "inventoryAmount needs to be set") int inventoryAmount, String imageUrl,
             String description, boolean deleted) {
         this.price = price;
         this.name = name;

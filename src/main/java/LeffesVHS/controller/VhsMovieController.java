@@ -73,15 +73,30 @@ public class VhsMovieController {
 
     // För Leffe när han inventerar
     @PATCH
-    @Path("/changemovieinventory/{id}")
-    public Response changeMovieInventory() {
-        return null;
+    @Path("/changemovieinventory/{id}/{newInventoryAmount}")
+    public Response changeMovieInventory(@PathParam("id") int id,@PathParam("newInventoryAmount") int newInventoryAmount) {
+
+        VhsMovie movieWithChangedInventory = vhsMovieService.changeMovieInventory(id, newInventoryAmount);
+
+        if (movieWithChangedInventory == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Could not find a movie with ID:" + id).build();
+
+        }
+        return Response.ok(movieWithChangedInventory).build();
     }
 
     @PATCH
-    @Path("/updateprice/{id}")
-    public Response updateMoviePrice() {
-        return null;
+    @Path("/updateprice/{id}/{newPrice}")
+    public Response updateMoviePrice(@PathParam("id") int id, @PathParam("newPrice") double newPrice) {
+
+        VhsMovie movieWithNewPrice = vhsMovieService.updateMoviePrice(id, newPrice);
+
+        if (movieWithNewPrice == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Could not find a movie with ID:" + id).build();
+        }
+
+        return Response.ok(movieWithNewPrice).build();
+
     }
 
     @POST

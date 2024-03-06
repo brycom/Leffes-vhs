@@ -19,4 +19,23 @@ public class VhsPlayerService {
         List<VhsPlayer> players = entityManager.createQuery("SELECT v FROM VhsPlayer v", VhsPlayer.class).getResultList();
         return players;
     }
+
+    public VhsPlayer getPlayerById(int id) {
+        return entityManager.find(VhsPlayer.class, id);
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public VhsPlayer createNewPlayer(VhsPlayer newVhsPlayer) {
+        try {
+
+            entityManager.persist(newVhsPlayer);
+            return newVhsPlayer;
+
+        } catch (Exception e) {
+
+            System.out.println(">>>>>" + e);
+            return null;
+            
+        }
+    }
 }
