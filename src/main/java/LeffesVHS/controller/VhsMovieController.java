@@ -36,6 +36,18 @@ public class VhsMovieController {
     }
 
     @GET
+    @Path("/notdeleted")
+    public Response getAllNotSoftDeletedMovies() {
+        List<VhsMovie> movies = vhsMovieService.findAllNotSoftDeleted();
+
+        if (movies.isEmpty()) {
+            return Response.noContent().build();
+        }
+
+        return Response.ok(movies).build();
+    }
+
+    @GET
     @Path("/{id}")
     public Response getUniqueMovie(@PathParam("id") int id) {
 
