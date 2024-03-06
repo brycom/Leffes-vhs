@@ -7,6 +7,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
+import jakarta.ws.rs.core.Response;
 
 @Transactional(Transactional.TxType.SUPPORTS) 
 @ApplicationScoped
@@ -67,30 +68,48 @@ public class VhsMovieService {
     }
 
     @Transactional(Transactional.TxType.REQUIRED) 
-    public VhsMovie buyMovie(int id) {
-        VhsMovie existingMovie = entityManager.find(VhsMovie.class, id);
+    public Response buyMovie(int id) {
+
+        try {
             
-             existingMovie.setInventoryAmount(existingMovie.getInventoryAmount()- 1);
-           
-        return entityManager.merge(existingMovie);
+            VhsMovie vhsMovieToBuy = entityManager.find(VhsMovie.class, id);
+
+            if (vhsMovieToBuy.getInventoryAmount() <= 0) {
+                return Response.status(Response.Status.BAD_REQUEST).entity("We are currently out of stock for this movie").build();
+            }
+
+            vhsMovieToBuy.setInventoryAmount(vhsMovieToBuy.getInventoryAmount() - 1);
+            entityManager.merge(vhsMovieToBuy);
+
+            return Response.ok(vhsMovieToBuy).build();
+
+        } catch (Exception e) {
+            System.out.println(">>>>" + e);
+            return Response.status(Response.Status.NOT_FOUND).entity("Could not find movie with ID " + id).build();
+        }
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public VhsMovie changeMovieInventory(int id, int newInventoryAmount) {
+    public Response changeMovieInventory(int id, int newInventoryAmount) {
 
         try {
 
-            VhsMovie movieInventoryToChange = entityManager.find(VhsMovie.class, id);
-            movieInventoryToChange.setInventoryAmount(newInventoryAmount);
-            entityManager.merge(movieInventoryToChange);
-            return movieInventoryToChange;
+            VhsMovie vhsMovieToChangeInventory = entityManager.find(VhsMovie.class, id);
+
+            if(newInventoryAmount < 0) {
+                return Response.status(Response.Status.BAD_REQUEST).entity("Inventory cant be a negative number").build();
+            }
+
+            vhsMovieToChangeInventory.setInventoryAmount(newInventoryAmount);
+            entityManager.merge(vhsMovieToChangeInventory);
+
+            return Response.ok(vhsMovieToChangeInventory).build();
             
         } catch (Exception e) {
-
-            System.out.println(">>>>>" + e);
-            return null;
-
+            System.out.println(">>>>" + e);
+            return Response.status(Response.Status.NOT_FOUND).entity("Could not find movie with ID " + id).build();
         }
+
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
