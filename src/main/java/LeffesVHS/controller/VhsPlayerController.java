@@ -2,6 +2,7 @@ package LeffesVHS.controller;
 
 import java.util.List;
 
+
 import LeffesVHS.model.VhsPlayer;
 import LeffesVHS.service.VhsPlayerService;
 import jakarta.inject.Inject;
@@ -27,6 +28,18 @@ public class VhsPlayerController {
     @GET
     public Response getAllPlayers() {
         List<VhsPlayer> players = vhsPlayerService.findAll();
+
+        if (players.isEmpty()) {
+            return Response.noContent().build();
+        }
+
+        return Response.ok(players).build();
+    }
+
+     @GET
+    @Path("/notdeleted")
+    public Response getAllNotSoftDeletedMovies() {
+        List<VhsPlayer> players = vhsPlayerService.findAllNotSoftDeleted();
 
         if (players.isEmpty()) {
             return Response.noContent().build();

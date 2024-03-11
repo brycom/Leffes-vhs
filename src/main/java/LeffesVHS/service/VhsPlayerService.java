@@ -2,6 +2,7 @@ package LeffesVHS.service;
 
 import java.util.List;
 
+
 import LeffesVHS.model.VhsPlayer;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -18,6 +19,11 @@ public class VhsPlayerService {
 
      public List<VhsPlayer> findAll(){
         List<VhsPlayer> players = entityManager.createQuery("SELECT v FROM VhsPlayer v", VhsPlayer.class).getResultList();
+        return players;
+    }
+
+     public List<VhsPlayer> findAllNotSoftDeleted(){
+        List<VhsPlayer> players = entityManager.createQuery("SELECT v FROM VhsPlayer v WHERE v.deleted = false", VhsPlayer.class).getResultList();
         return players;
     }
 
