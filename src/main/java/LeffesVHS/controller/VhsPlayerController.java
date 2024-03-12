@@ -81,9 +81,17 @@ public class VhsPlayerController {
     }
 
     @PATCH
-    @Path("/updateprice/{id}")
-    public Response updatePlayerPrice() {
-        return null;
+    @Path("/updateprice/{id}/{newPrice}")
+    public Response updateMoviePrice(@PathParam("id") int id, @PathParam("newPrice") double newPrice) {
+
+        VhsPlayer playerWithNewPrice = vhsPlayerService.updatePlayerPrice(id, newPrice);
+
+        if (playerWithNewPrice == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Could not find a movie with ID:" + id).build();
+        }
+
+        return Response.ok(playerWithNewPrice).build();
+
     }
 
     @POST
@@ -106,8 +114,16 @@ public class VhsPlayerController {
 
     @DELETE
     @Path("/{id}")
-    public Response deletePlayer() {
-        return null;
+    public Response deletePlayer(@PathParam("id") int id) {
+
+        VhsPlayer playerToDelete = vhsPlayerService.deletePlayer(id);
+
+        if (playerToDelete == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Could not find a movie with ID: " + id).build();
+        }
+
+        return Response.status(Response.Status.OK).entity("The Movie: \"" + playerToDelete.getName() + "\" Was Deleted").build();
+
     }
 
     @GET

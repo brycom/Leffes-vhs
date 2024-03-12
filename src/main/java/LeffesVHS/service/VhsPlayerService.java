@@ -99,4 +99,42 @@ public class VhsPlayerService {
 
         return players;
     }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public VhsPlayer deletePlayer(int id) {
+        VhsPlayer playerToDelete = entityManager.find(VhsPlayer.class, id);
+
+        try {
+
+            playerToDelete.setDeleted(true);
+            entityManager.merge(playerToDelete);
+            return playerToDelete;
+
+        } catch (Exception e) {
+
+            System.out.println(">>>>>>" + e);
+            return null;
+            
+        }
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public VhsPlayer updatePlayerPrice(int id, double newPrice) {
+
+        try {
+
+            VhsPlayer playerWithNewPrice = entityManager.find(VhsPlayer.class, id);
+            playerWithNewPrice.setPrice(newPrice);
+            entityManager.merge(playerWithNewPrice);
+            return playerWithNewPrice;
+
+        } catch (Exception e) {
+
+            System.out.println(">>>>" + e);
+            return null;
+
+        }
+
+    }
+
 }
