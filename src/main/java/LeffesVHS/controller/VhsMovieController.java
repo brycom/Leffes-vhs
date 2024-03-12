@@ -133,4 +133,16 @@ public class VhsMovieController {
 
     }
 
+    @GET
+    @Path("/search/{name}")
+    public Response getSearch(@PathParam("name") String name) {
+        List<VhsMovie> movies = vhsMovieService.getMoviesBySearch(name);
+
+        if (movies.isEmpty()) {
+            return Response.noContent().build();
+        }
+
+        return Response.ok(movies).build();
+    }
+
 }

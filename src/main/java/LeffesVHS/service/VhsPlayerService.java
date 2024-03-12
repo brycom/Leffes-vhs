@@ -2,7 +2,7 @@ package LeffesVHS.service;
 
 import java.util.List;
 
-
+import LeffesVHS.model.VhsMovie;
 import LeffesVHS.model.VhsPlayer;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -89,5 +89,14 @@ public class VhsPlayerService {
             System.out.println(">>>>" + e);
             return Response.status(Response.Status.NOT_FOUND).entity("Could not find player with ID " + id).build();
         }
+    }
+
+    public List<VhsPlayer> getPlayersBySearch(String name) {
+        @SuppressWarnings("unchecked")
+        List<VhsPlayer> players = entityManager.createQuery("SELECT v FROM VhsPlayer v WHERE v.name LIKE :name AND v.deleted = false ")
+        .setParameter("name", "%" + name + "%")
+        .getResultList();
+
+        return players;
     }
 }

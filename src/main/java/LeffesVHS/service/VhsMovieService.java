@@ -130,4 +130,13 @@ public class VhsMovieService {
         }
 
     }
+
+    public List<VhsMovie> getMoviesBySearch(String name) {
+        @SuppressWarnings("unchecked")
+        List<VhsMovie> movies = entityManager.createQuery("SELECT v FROM VhsMovie v WHERE v.name LIKE :name AND v.deleted = false ")
+        .setParameter("name", "%" + name + "%")
+        .getResultList();
+
+        return movies;
+    }
 }
