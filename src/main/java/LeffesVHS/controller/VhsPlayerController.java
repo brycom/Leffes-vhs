@@ -2,7 +2,7 @@ package LeffesVHS.controller;
 
 import java.util.List;
 
-
+import LeffesVHS.model.VhsMovie;
 import LeffesVHS.model.VhsPlayer;
 import LeffesVHS.service.VhsPlayerService;
 import jakarta.inject.Inject;
@@ -108,6 +108,18 @@ public class VhsPlayerController {
     @Path("/{id}")
     public Response deletePlayer() {
         return null;
+    }
+
+    @GET
+    @Path("/search/{name}")
+    public Response getSearch(@PathParam("name") String name) {
+        List<VhsPlayer> players = vhsPlayerService.getPlayersBySearch(name);
+
+        if (players.isEmpty()) {
+            return Response.noContent().build();
+        }
+
+        return Response.ok(players).build();
     }
 
 }
