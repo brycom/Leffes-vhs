@@ -2,6 +2,7 @@ package LeffesVHS.controller;
 
 import java.util.List;
 
+import LeffesVHS.model.VhsMovie;
 import LeffesVHS.model.VhsPlayer;
 import LeffesVHS.service.VhsPlayerService;
 import jakarta.inject.Inject;
@@ -35,6 +36,18 @@ public class VhsPlayerController {
         return Response.ok(players).build();
     }
 
+     @GET
+    @Path("/notdeleted")
+    public Response getAllNotSoftDeletedMovies() {
+        List<VhsPlayer> players = vhsPlayerService.findAllNotSoftDeleted();
+
+        if (players.isEmpty()) {
+            return Response.noContent().build();
+        }
+
+        return Response.ok(players).build();
+    }
+
     @GET
     @Path("/{id}")
     public Response getUniquePlayer(@PathParam("id") int id) {
@@ -52,15 +65,19 @@ public class VhsPlayerController {
     // Används för att köpa en spelare. vhsPlayer --
     @PATCH
     @Path("/buyplayer/{id}")
-    public Response buyPlayer() {
-        return null;
+    public Response buyPlayer(@PathParam("id") int id) {
+    
+        return vhsPlayerService.buyPlayer(id);
+    
     }
 
     // För Leffe när han inventerar
     @PATCH
-    @Path("/changeplayerinventory/{id}")
-    public Response changePlayerInventory() {
-        return null;
+    @Path("/changeplayerinventory/{id}/{newInventoryAmount}")
+    public Response changePlayerInventory(@PathParam("id") int id, @PathParam("newInventoryAmount") int newInventoryAmount) {
+    
+        return vhsPlayerService.changePlayerInventory(id, newInventoryAmount);
+            
     }
 
     @PATCH
@@ -91,6 +108,18 @@ public class VhsPlayerController {
     @Path("/{id}")
     public Response deletePlayer() {
         return null;
+    }
+
+    @GET
+    @Path("/search/{name}")
+    public Response getSearch(@PathParam("name") String name) {
+        List<VhsPlayer> players = vhsPlayerService.getPlayersBySearch(name);
+
+        if (players.isEmpty()) {
+            return Response.noContent().build();
+        }
+
+        return Response.ok(players).build();
     }
 
 }

@@ -36,6 +36,18 @@ public class VhsMovieController {
     }
 
     @GET
+    @Path("/notdeleted")
+    public Response getAllNotSoftDeletedMovies() {
+        List<VhsMovie> movies = vhsMovieService.findAllNotSoftDeleted();
+
+        if (movies.isEmpty()) {
+            return Response.noContent().build();
+        }
+
+        return Response.ok(movies).build();
+    }
+
+    @GET
     @Path("/{id}")
     public Response getUniqueMovie(@PathParam("id") int id) {
 
@@ -62,13 +74,9 @@ public class VhsMovieController {
     @PATCH
     @Path("/buymovie/{id}")
     public Response buyMovie(@PathParam("id") int id) {
-        VhsMovie buyMovie = vhsMovieService.buyMovie(id);
 
-        if (buyMovie == null) {
-            return Response.status(Response.Status.NOT_FOUND).entity("Could not find a movie with ID: " + id).build();
+        return vhsMovieService.buyMovie(id);
 
-        }
-        return Response.ok(buyMovie).build();
     }
 
     // För Leffe när han inventerar
@@ -76,13 +84,8 @@ public class VhsMovieController {
     @Path("/changemovieinventory/{id}/{newInventoryAmount}")
     public Response changeMovieInventory(@PathParam("id") int id,@PathParam("newInventoryAmount") int newInventoryAmount) {
 
-        VhsMovie movieWithChangedInventory = vhsMovieService.changeMovieInventory(id, newInventoryAmount);
-
-        if (movieWithChangedInventory == null) {
-            return Response.status(Response.Status.NOT_FOUND).entity("Could not find a movie with ID:" + id).build();
-
-        }
-        return Response.ok(movieWithChangedInventory).build();
+        return vhsMovieService.changeMovieInventory(id, newInventoryAmount);
+        
     }
 
     @PATCH
@@ -128,6 +131,18 @@ public class VhsMovieController {
 
         return Response.status(Response.Status.OK).entity("The Movie: \"" + movieToDelete.getName() + "\" Was Deleted").build();
 
+    }
+
+    @GET
+    @Path("/search/{name}")
+    public Response getSearch(@PathParam("name") String name) {
+        List<VhsMovie> movies = vhsMovieService.getMoviesBySearch(name);
+
+        if (movies.isEmpty()) {
+            return Response.noContent().build();
+        }
+
+        return Response.ok(movies).build();
     }
 
 }

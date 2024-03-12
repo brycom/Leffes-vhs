@@ -170,7 +170,7 @@ INSERT INTO
         price, name, inventoryAmount, imageUrl, description, deleted
     )
 VALUES (
-        799, "VHS PLAYER 9000", 7, "http://dummyimage.com/249x100.png/ff4444/ffffff", "Handmade by LEFFE of Sweden", false
+        799, "VHS PLAYER 9000", 7, 'http://dummyimage.com/249x100.png/ff4444/ffffff', "Handmade by LEFFE of Sweden", true
     );
 
 INSERT INTO
@@ -178,7 +178,7 @@ INSERT INTO
         price, name, inventoryAmount, imageUrl, description, deleted
     )
 VALUES (
-        32.2, "Spelare ett", 1, "http://dummyimage.com/249x100.png/ff4444/ffffff", "Din första VHS-spelare", false
+        32.2, "Spelare ett", 1, 'http://dummyimage.com/249x100.png/ff4444/ffffff', "Din första VHS-spelare", false
     );
 
 INSERT INTO
@@ -186,5 +186,5 @@ INSERT INTO
         price, name, inventoryAmount, imageUrl, description, deleted
     )
 VALUES (
-        9000.1, "Over 9000!", 764, "http://dummyimage.com/249x100.png/ff4444/ffffff", "The best player for Dragon Ball Z", true
+        9000.1, "Over 9000!", 764, 'http://dummyimage.com/249x100.png/ff4444/ffffff', "The best player for Dragon Ball Z", true
     );
