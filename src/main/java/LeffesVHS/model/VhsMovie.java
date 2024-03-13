@@ -1,5 +1,6 @@
 package LeffesVHS.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -28,6 +29,7 @@ public class VhsMovie {
 
     private String imageUrl;
 
+    @Column(length = 65535,columnDefinition="Text")
     private String description;
 
     private boolean deleted;
