@@ -34,6 +34,8 @@ public class VhsMovie {
 
     private boolean deleted;
 
+    private String stripeId;
+
     public boolean isDeleted() {
         return deleted;
     }
@@ -49,7 +51,7 @@ public class VhsMovie {
     public VhsMovie(@NotNull(message = "Price can't be empty") double price,
             @NotEmpty(message = "Name can't be empty") String name,
             @NotNull(message = "inventoryAmount needs to be set") int inventoryAmount, String category,
-            String imageUrl, String description, boolean deleted) {
+            String imageUrl, String description, boolean deleted, String stripeId) {
         this.price = price;
         this.name = name;
         this.inventoryAmount = inventoryAmount;
@@ -57,6 +59,8 @@ public class VhsMovie {
         this.imageUrl = imageUrl;
         this.description = description;
         this.deleted = false;
+        this.stripeId = stripeId;
+
     }
 
     public int getId() {
@@ -109,5 +113,13 @@ public class VhsMovie {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getStripeId() {
+        return stripeId;
+    }
+
+    public void setStripeId(String stripeId) {
+        this.stripeId = stripeId;
     }
 }
