@@ -10,8 +10,9 @@ insert into
         price, inventoryAmount, category, imageUrl, description, deleted, name, stripeId
     )
 values (
-        199.99, 9, 'Action|Thriller', 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/uzxdKGVLPoCGsGZ9Oga92fG6rLi.jpg', 'Högt över Los Angeles har en grupp terrorister intagit en byggnad, tagit gisslan och förklarat krig. Men en man har lyckats undgå att bli upptäckt...en polisman som inte är i tjänst. Han är ensam...trött...och det sista hoppet för alla.', true, 'Die Hard', 'price_1OuXzRKQ2XHNRrsT5KbrjNv7'
-    );
+
+        199.99, 9, 'Action|Thriller', 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/uzxdKGVLPoCGsGZ9Oga92fG6rLi.jpg', 'Högt över Los Angeles har en grupp terrorister intagit en byggnad, tagit gisslan och förklarat krig. Men en man har lyckats undgå att bli upptäckt...en polisman som inte är i tjänst. Han är ensam...trött...och det sista hoppet för alla.', false, 'Die Hard'
+ );
 
 insert into
     vhs_movie (
@@ -90,7 +91,9 @@ insert into
         price, inventoryAmount, category, imageUrl, description, deleted, name, stripeId
     )
 values (
-        199.99, 673, 'Drama|Science Fiction', 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/iTk59x6Tap1sG2q0tnEGhiVjFnZ.jpg', 'En helt vanlig natt börjar plötsligt ett helt samhälle att läggas i mörker och ovanliga ljusfenomn börjar att uppträda på natthimlen. Från elverket skickas Roy Neary ut för att försöka reparera felen, men på väg till en av nätstationerna kör han vilse. Plötsligt skakas hela bilen fruktansvärt och han bländas av ett oerhört starkt sken.', true, 'Närkontakt av tredje graden', 'price_1OuY6jKQ2XHNRrsTJXDx5KEp'
+
+        199.99, 673, 'Drama|Science Fiction', 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/iTk59x6Tap1sG2q0tnEGhiVjFnZ.jpg', 'En helt vanlig natt börjar plötsligt ett helt samhälle att läggas i mörker och ovanliga ljusfenomn börjar att uppträda på natthimlen. Från elverket skickas Roy Neary ut för att försöka reparera felen, men på väg till en av nätstationerna kör han vilse. Plötsligt skakas hela bilen fruktansvärt och han bländas av ett oerhört starkt sken.', false, 'Närkontakt av tredje graden'
+
     );
 
 insert into
@@ -98,7 +101,9 @@ insert into
         price, inventoryAmount, category, imageUrl, description, deleted, name, stripeId
     )
 values (
-        199.99, 305, 'Action|Äventyr', 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/dIYc5PqinJva1611VUDIdVXatOi.jpg', 'Den handlingskraftige arkeologen ger sig tillsammans med sin självständiga och något svårhanterliga ex-flickvän Marion Ravenwood iväg för att finna den sägenomspunna heliga arken före nazisterna. Den halsbrytande kapplöpningen går genom Sydamerikas djungler, Kairos myllrande gator och en topphemlig ubåtsbas, och Indy tvingas utstå gift, fällor, ormar och förrädare för att nå målet.', true, 'Jakten på den försvunna skatten', 'price_1OuY7GKQ2XHNRrsTMQtyvvzr'
+
+        199.99, 305, 'Action|Äventyr', 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/dIYc5PqinJva1611VUDIdVXatOi.jpg', 'Den handlingskraftige arkeologen ger sig tillsammans med sin självständiga och något svårhanterliga ex-flickvän Marion Ravenwood iväg för att finna den sägenomspunna heliga arken före nazisterna. Den halsbrytande kapplöpningen går genom Sydamerikas djungler, Kairos myllrande gator och en topphemlig ubåtsbas, och Indy tvingas utstå gift, fällor, ormar och förrädare för att nå målet.', false, 'Jakten på den försvunna skatten'
+
     );
 
 insert into
@@ -130,7 +135,9 @@ insert into
         price, inventoryAmount, category, imageUrl, description, deleted, name, stripeId
     )
 values (
-        199.99, 964, 'Fantasy|Skräck|Komedi', 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/3iUgvvtB01BuTntPOBcG64kYk6y.jpg', 'Låt den aldrig bli blöt. Håll den borta från starkt ljus. Och hur mycket den än gråter, hur mycket den än ber… ge den aldrig mat efter midnatt, med dessa instruktioner så får Billy Peltzer ett nytt kramigt djur i sin ägo. Billy kommer att få mycket mer än han räknade med.', true, 'Gremlins', 'price_1OuY9FKQ2XHNRrsTSeUJcdYN'
+
+        199.99, 964, 'Fantasy|Skräck|Komedi', 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/3iUgvvtB01BuTntPOBcG64kYk6y.jpg', 'Låt den aldrig bli blöt. Håll den borta från starkt ljus. Och hur mycket den än gråter, hur mycket den än ber… ge den aldrig mat efter midnatt, med dessa instruktioner så får Billy Peltzer ett nytt kramigt djur i sin ägo. Billy kommer att få mycket mer än han räknade med.', false, 'Gremlins'
+
     );
 
 
@@ -145,7 +152,7 @@ INSERT INTO
         price, name, inventoryAmount, imageUrl, description, deleted
     )
 VALUES (
-        799, "VHS PLAYER 9000", 7, 'http://dummyimage.com/249x100.png/ff4444/ffffff', "Handmade by LEFFE of Sweden", true
+        799, "VHS PLAYER 9000", 7, 'https://cdn.pixabay.com/photo/2016/02/26/01/00/video-1223304_1280.jpg', "Handmade by LEFFE of Sweden", false
     );
 
 INSERT INTO
@@ -153,7 +160,7 @@ INSERT INTO
         price, name, inventoryAmount, imageUrl, description, deleted
     )
 VALUES (
-        32.2, "Spelare ett", 1, 'http://dummyimage.com/249x100.png/ff4444/ffffff', "Din första VHS-spelare", false
+        32.2, "Spelare ett", 1, 'https://images.pexels.com/photos/14923853/pexels-photo-14923853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', "Din första VHS-spelare", false
     );
 
 INSERT INTO
@@ -161,5 +168,5 @@ INSERT INTO
         price, name, inventoryAmount, imageUrl, description, deleted
     )
 VALUES (
-        9000.1, "Over 9000!", 764, 'http://dummyimage.com/249x100.png/ff4444/ffffff', "The best player for Dragon Ball Z", true
+        9000.1, "Over 9000!", 764, 'https://cdn.pixabay.com/photo/2020/02/22/21/50/record-4871720_1280.jpg', "The best player for Dragon Ball Z", false
     );

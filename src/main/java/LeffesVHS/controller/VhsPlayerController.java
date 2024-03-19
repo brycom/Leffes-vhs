@@ -2,7 +2,7 @@ package LeffesVHS.controller;
 
 import java.util.List;
 
-import LeffesVHS.model.VhsMovie;
+
 import LeffesVHS.model.VhsPlayer;
 import LeffesVHS.service.VhsPlayerService;
 import jakarta.inject.Inject;
